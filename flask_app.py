@@ -26,7 +26,6 @@ def insert():
 	cur = con.cursor()
 	cur.execute("""	INSERT INTO Users VALUES ('Tom', 'abc') """)
 	con.commit()
-	con.close()
 	return 'INSERT'
 
 @app.route('/select')
