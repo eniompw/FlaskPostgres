@@ -13,20 +13,20 @@ def hello_world():
 @app.route('/create')
 def create():
 	cur = con.cursor()
-	cur.execute(	"""	CREATE TABLE Users(
-					Username VARCHAR(20) NOT NULL PRIMARY KEY,
-					Password VARCHAR(20) NOT NULL
-						                  )
-			""")
+	cur.execute("""	CREATE TABLE Users(
+				Username VARCHAR(20) NOT NULL PRIMARY KEY,
+				Password VARCHAR(20) NOT NULL
+					  )
+		    """)
 	con.commit()
 	return 'CREATE'
 
 @app.route('/insert')
 def insert():
 	cur = con.cursor()
-	cur.execute(	"""	INSERT INTO Users (Username, Password)
-					VALUES ("Bob", "123")
-				""")
+	cur.execute("""	INSERT INTO Users (Username, Password)
+				VALUES ("Bob", "123")
+		    """)
 	con.commit()
 	return 'INSERT'
 
