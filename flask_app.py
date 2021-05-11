@@ -28,7 +28,7 @@ def insert():
 	con.commit()
 	return 'INSERT'
 
-@app.route('/in')
+@app.route('/inget')
 def inget():
 	cur = con.cursor()
 	un = request.args.get('un', '')
@@ -37,21 +37,11 @@ def inget():
 	con.commit()
 	return 'inserted get'
 
-@app.route('/fa')
-def fa():
-	cur = con.cursor()
-	cur.execute("SELECT * FROM Users")
-	return str(cur.fetchall())
-
 @app.route('/select')
 def select():
 	cur = con.cursor()
 	cur.execute("SELECT * FROM Users")
-	result = cur.fetchall()
-	if len(result) == 0:
-		return 'no records'
-	else:
-		return ','.join(map(str, result))
+	return str(cur.fetchall())
 
 @app.route('/delete')
 def delete():
