@@ -33,7 +33,7 @@ def inget():
 	cur = con.cursor()
 	un = request.args.get('un', '')
 	pw = request.args.get('pw', '')
-	cur.execute("INSERT INTO Users VALUES (?,?)", (un,pw))
+	cur.execute("INSERT INTO Users (Username, Password) VALUES (?,?)", (un,pw))
 	con.commit()
 	return 'inserted get'
 
