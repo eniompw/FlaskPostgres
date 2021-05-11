@@ -1,2 +1,4 @@
+python
 gunicorn
 Flask
+psycopg2
