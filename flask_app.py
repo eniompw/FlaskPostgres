@@ -2,8 +2,8 @@ from flask import Flask, request
 app = Flask(__name__)
 
 import os
-import psycopg2
 DATABASE_URL = os.environ['DATABASE_URL']
+import psycopg2
 con = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 @app.route('/')
