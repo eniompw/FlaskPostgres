@@ -20,3 +20,22 @@ def create():
 			""")
 	con.commit()
 	return 'CREATE'
+
+@app.route('/insert')
+def insert():
+	cur = con.cursor()
+	cur.execute(	"""	INSERT INTO Users (Username, Password)
+					VALUES ("Bob", "123")
+				""")
+	con.commit()
+	return 'INSERT'
+
+@app.route('/select')
+def select():
+	cur = con.cursor()
+	cur.execute("SELECT * FROM Users")
+	result = cur.fetchall()
+	if len(result) == 0:
+		return 'no records'
+	else:
+		return ','.join(map(str, result))
