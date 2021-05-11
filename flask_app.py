@@ -25,7 +25,7 @@ def create():
 def insert():
 	cur = con.cursor()
 	cur.execute("""	INSERT INTO Users (Username, Password)
-				VALUES ("Bob", "123")
+				VALUES ('Bob', '123')
 		    """)
 	con.commit()
 	con.close()
