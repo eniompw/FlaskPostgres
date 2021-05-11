@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 import os
@@ -27,6 +27,15 @@ def insert():
 	cur.execute("""	INSERT INTO Users VALUES ('Bob', '123') """)
 	con.commit()
 	return 'INSERT'
+
+@app.route('/in')
+def inget():
+	cur = con.cursor()
+	un = request.args.get('un', '')
+	pw = request.args.get('pw', '')
+	cur.execute(" INSERT INTO Users VALUES (?, ?) ", (un,pw))
+	con.commit()
+	return 'inserted get'
 
 @app.route('/fo')
 def fo():
