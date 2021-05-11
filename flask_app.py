@@ -32,7 +32,7 @@ def insert():
 def fo():
 	cur = con.cursor()
 	cur.execute("SELECT * FROM Users")
-	return cur.fetchone()
+	return str(cur.fetchone())
 
 @app.route('/select')
 def select():
