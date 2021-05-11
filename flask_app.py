@@ -37,11 +37,11 @@ def inget():
 	con.commit()
 	return 'inserted get'
 
-@app.route('/fo')
-def fo():
+@app.route('/fa')
+def fa():
 	cur = con.cursor()
 	cur.execute("SELECT * FROM Users")
-	return cur.fetchone()
+	return cur.fetchall()
 
 @app.route('/select')
 def select():
