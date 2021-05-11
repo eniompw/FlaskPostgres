@@ -24,9 +24,7 @@ def create():
 @app.route('/insert')
 def insert():
 	cur = con.cursor()
-	cur.execute("""	INSERT INTO Users (Username, Password)
-				VALUES ('Bob', '123')
-		    """)
+	cur.execute("""	INSERT INTO Users VALUES ('Tom', 'abc') """)
 	con.commit()
 	con.close()
 	return 'INSERT'
