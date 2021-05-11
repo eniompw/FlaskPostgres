@@ -28,6 +28,12 @@ def insert():
 	con.commit()
 	return 'INSERT'
 
+@app.route('/fo')
+def fo():
+	cur = con.cursor()
+	cur.execute("SELECT * FROM Users")
+	return cur.fetchone()
+
 @app.route('/select')
 def select():
 	cur = con.cursor()
