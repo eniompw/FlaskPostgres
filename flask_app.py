@@ -37,3 +37,11 @@ def select():
 		return 'no records'
 	else:
 		return ','.join(map(str, result))
+
+@app.route('/delete')
+def delete():
+	cur = con.cursor()
+	cur.execute("""	DELETE FROM Users """)
+	con.commit()
+	return 'DELETE'
+
