@@ -1,4 +1,3 @@
-Python
 gunicorn
 Flask
 psycopg2
