@@ -4,7 +4,7 @@ app = Flask(__name__)
 import os
 import psycopg2
 DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+con = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 @app.route('/')
 def hello_world():
@@ -12,7 +12,7 @@ def hello_world():
 
 @app.route('/create')
 def create():
-	cur = conn.cursor()
+	cur = con.cursor()
 	cur.execute(	"""	CREATE TABLE Users(
 					Username VARCHAR(20) NOT NULL PRIMARY KEY,
 					Password VARCHAR(20) NOT NULL
