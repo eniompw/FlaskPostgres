@@ -41,7 +41,7 @@ def inget():
 def fa():
 	cur = con.cursor()
 	cur.execute("SELECT * FROM Users")
-	return cur.fetchall()
+	return str(cur.fetchall())
 
 @app.route('/select')
 def select():
